@@ -68,4 +68,5 @@ const scheduler = setInterval(() => {
 }, 1000);
 scheduler.unref();
 app.use(express.static('dist'));
-app.listen(Number(process.env.PORT) || 3001, '127.0.0.1', () => console.log('DON’T GO server: http://127.0.0.1:3001'));
+const host = process.env.HOST || '127.0.0.1';
+app.listen(Number(process.env.PORT) || 3001, host, () => console.log(`DON’T GO server: http://${host}:${Number(process.env.PORT) || 3001}`));

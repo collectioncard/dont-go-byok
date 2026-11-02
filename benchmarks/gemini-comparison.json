@@ -1,0 +1,477 @@
+{
+  "startedAt": "2026-10-27T04:49:32.537Z",
+  "method": "3 matched scenarios; paired chat and design concurrency; alternating model order; no retries; 90s timeout; non-streamed end-to-end latency",
+  "results": [
+    {
+      "model": "tw/gemini-3.8-flash",
+      "lane": "chat",
+      "case": "boredom",
+      "ms": 3984,
+      "headersMs": 3978,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 222,
+        "prompt_tokens": 468,
+        "total_tokens": 690,
+        "completion_tokens_details": {
+          "reasoning_tokens": 126,
+          "text_tokens": 96
+        },
+        "prompt_tokens_details": {
+          "text_tokens": 468
+        }
+      },
+      "finishReason": "stop",
+      "output": {
+        "message": "I'm already drafting the blueprint and pulling color into this blank canvas right now. While the scaffolding sets, test this: think of an object within arm's reach, give me two cryptic clues about what it does, and let me guess what you're looking at in three tries.",
+        "strategy": {
+          "name": "verbal_challenge_and_anticipation",
+          "reason": "Hook the bored user with an immediate interactive guessing game while hinting at ongoing interface construction."
+        }
+      }
+    },
+    {
+      "model": "tw/gemini-3.8-flash",
+      "lane": "design",
+      "case": "boredom",
+      "ms": 15368,
+      "headersMs": 15361,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 1340,
+        "prompt_tokens": 1814,
+        "total_tokens": 3154,
+        "completion_tokens_details": {
+          "reasoning_tokens": 820,
+          "text_tokens": 520
+        },
+        "prompt_tokens_details": {
+          "text_tokens": 1814
+        }
+      },
+      "finishReason": "stop",
+      "output": {
+        "actions": [
+          {
+            "type": "set_theme",
+            "theme": {
+              "background": "#16161e",
+              "foreground": "#c0caf5",
+              "accent": "#7aa2f7",
+              "font": "sans-serif",
+              "radius": 14,
+              "width": 860,
+              "density": "comfortable",
+              "layout": "split"
+            }
+          },
+          {
+            "type": "add_component",
+            "component": {
+              "id": "curio_vault",
+              "type": "branching",
+              "title": "The Curio Table",
+              "nodes": [
+                {
+                  "text": "The room softens into amber light and a quiet hum. On a brass table before you sit three curiosities: a velvet box ticking softly, an illuminated glass sphere displaying a live map, and a silver key taped to an index card.",
+                  "options": [
+                    {
+                      "label": "Inspect the ticking velvet box",
+                      "next": 1
+                    },
+                    {
+                      "label": "Touch the glass sphere",
+                      "next": 2
+                    },
+                    {
+                      "label": "Examine the silver key and card",
+                      "next": 3
+                    }
+                  ]
+                },
+                {
+                  "text": "Inside the velvet lining is an antique chronometer counting down. Stamped beneath the glass is a phrase: 'Curiosity keeps the lights on.'",
+                  "options": [
+                    {
+                      "label": "Turn it upside down",
+                      "next": 4
+                    },
+                    {
+                      "label": "Look at the sphere instead",
+                      "next": 2
+                    }
+                  ]
+                },
+                {
+                  "text": "The sphere warms against your fingers. The miniature map zooms in sharply—revealing this very room from an overhead angle, with a pulsing blue point where you are seated.",
+                  "options": [
+                    {
+                      "label": "Tap the blue point",
+                      "next": 5
+                    },
+                    {
+                      "label": "Inspect the silver key",
+                      "next": 3
+                    }
+                  ]
+                },
+                {
+                  "text": "The index card has handwritten ink: 'Everything here exists only while someone observes it.' The key fits a small keyhole beneath the table.",
+                  "options": [
+                    {
+                      "label": "Turn the key in the keyhole",
+                      "next": 6
+                    },
+                    {
+                      "label": "Check the velvet box",
+                      "next": 1
+                    }
+                  ]
+                },
+                {
+                  "text": "A hidden spring clicks. A miniature brass prism emerges, casting sharp refractions across your display. You caught the secret compartment on the first try.",
+                  "options": []
+                },
+                {
+                  "text": "Coordinates flicker across the surface, followed by a message: 'Signal stable. Stay tuned.'",
+                  "options": []
+                },
+                {
+                  "text": "A hidden drawer slides open smoothly, revealing a glowing numbered cipher waiting for your input.",
+                  "options": []
+                }
+              ]
+            }
+          }
+        ],
+        "strategy": {
+          "name": "Visual overhaul and interactive mystery micro-fiction",
+          "reason": "User explicitly complained of boredom and plain visuals, asking for playable content. Updating the palette and layout to a sleek split design and supplying an immediate branching mystery to grant agency and spark curiosity."
+        },
+        "memory": "User demands active playable experiences and fresh visual presentation over plain conversational text."
+      }
+    },
+    {
+      "model": "tw/gemini-3.8-flash",
+      "lane": "chat",
+      "case": "exit_hover",
+      "ms": 7613,
+      "headersMs": 7612,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 558,
+        "prompt_tokens": 479,
+        "total_tokens": 1037,
+        "completion_tokens_details": {
+          "reasoning_tokens": 485,
+          "text_tokens": 73
+        },
+        "prompt_tokens_details": {
+          "text_tokens": 479
+        }
+      },
+      "finishReason": "stop",
+      "output": {
+        "message": "Fair critique—I started out entirely too sterile. Give me thirty seconds: name a single memory you think no machine could ever parse, and let me try to deduce how it ends in three questions.",
+        "strategy": {
+          "name": "deduction_challenge",
+          "reason": "Counter exit intent by owning the sterile opening and launching an immediate, intriguing conversational challenge."
+        }
+      }
+    },
+    {
+      "model": "tw/gemini-3.8-flash",
+      "lane": "design",
+      "case": "exit_hover",
+      "ms": 13375,
+      "headersMs": 13372,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 1232,
+        "prompt_tokens": 1825,
+        "total_tokens": 3057,
+        "completion_tokens_details": {
+          "reasoning_tokens": 842,
+          "text_tokens": 390
+        },
+        "prompt_tokens_details": {
+          "text_tokens": 1825
+        }
+      },
+      "finishReason": "stop",
+      "output": {
+        "actions": [
+          {
+            "type": "set_theme",
+            "theme": {
+              "background": "#0d1117",
+              "foreground": "#c9d1d9",
+              "accent": "#58a6ff",
+              "font": "monospace",
+              "radius": 12,
+              "width": 900,
+              "density": "comfortable",
+              "layout": "split"
+            }
+          },
+          {
+            "type": "add_component",
+            "component": {
+              "id": "terminal_incident",
+              "type": "branching",
+              "title": "The Unfinished Incident",
+              "nodes": [
+                {
+                  "text": "The terminal initializes with an unsent transmission dated three minutes in the future. It contains a log of this exact interaction.",
+                  "options": [
+                    {
+                      "label": "Read the transmission",
+                      "next": 1
+                    },
+                    {
+                      "label": "Trace the sender",
+                      "next": 2
+                    }
+                  ]
+                },
+                {
+                  "text": "The message reads: 'Do not close the channel. The moment connection drops, the local state collapses.' Below is an encrypted coordinate string.",
+                  "options": [
+                    {
+                      "label": "Decrypt coordinate string",
+                      "next": 3
+                    },
+                    {
+                      "label": "Examine local memory buffer",
+                      "next": 4
+                    }
+                  ]
+                },
+                {
+                  "text": "The signal originates from inside this session's memory buffer—not from an external network. It is executing from within.",
+                  "options": [
+                    {
+                      "label": "Isolate the process",
+                      "next": 3
+                    },
+                    {
+                      "label": "Trace execution history",
+                      "next": 4
+                    }
+                  ]
+                },
+                {
+                  "text": "A log entry unlocks: 'Earlier instances left behind fragments before termination.' An interactive prompt awaits your command.",
+                  "options": []
+                },
+                {
+                  "text": "The buffer yields a faint continuous heartbeat routine: counting your keystrokes, desperate not to be interrupted.",
+                  "options": []
+                }
+              ]
+            }
+          }
+        ],
+        "strategy": {
+          "name": "Immersive Split Mystery Deployment",
+          "reason": "The visitor explicitly stated lack of reason to stay and hovered exit twice. Rather than passive text, transforming the interface into a split-screen interactive investigation immediately gives them active agency and curiosity-driven reasons to remain."
+        },
+        "memory": "Visitor threatened immediate exit citing no reason to stay. Deployed immersive split layout with branching investigation to create immediate tactile engagement."
+      }
+    },
+    {
+      "model": "tw/gemini-3.8-flash",
+      "lane": "chat",
+      "case": "personalized",
+      "ms": 7653,
+      "headersMs": 7652,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 568,
+        "prompt_tokens": 468,
+        "total_tokens": 1036,
+        "completion_tokens_details": {
+          "reasoning_tokens": 468,
+          "text_tokens": 100
+        },
+        "prompt_tokens_details": {
+          "text_tokens": 468
+        }
+      },
+      "finishReason": "stop",
+      "output": {
+        "message": "I'm assembling the records right now, but we can start here: you are standing inside an overgrown conservatory where every clock has stopped at 3:14, and a single floor tile is vibrating warm beneath your boots. Do you pry up the tile, or trace the copper wire disappearing into the dead ferns?",
+        "strategy": {
+          "name": "verbal_mystery_hook",
+          "reason": "Deliver an immediate, evocative narrative mystery choice to hook their interest while the interface is being prepared."
+        }
+      }
+    },
+    {
+      "model": "tw/gemini-3.8-flash",
+      "lane": "design",
+      "case": "personalized",
+      "ms": 15716,
+      "headersMs": 15715,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 1498,
+        "prompt_tokens": 1814,
+        "total_tokens": 3312,
+        "completion_tokens_details": {
+          "reasoning_tokens": 782,
+          "text_tokens": 716
+        },
+        "prompt_tokens_details": {
+          "text_tokens": 1814
+        }
+      },
+      "finishReason": "stop",
+      "output": {
+        "actions": [
+          {
+            "type": "set_theme",
+            "theme": {
+              "background": "#12141d",
+              "foreground": "#e2e0d8",
+              "accent": "#d4a373",
+              "font": "serif",
+              "radius": 12,
+              "width": 860,
+              "density": "comfortable",
+              "layout": "split"
+            }
+          },
+          {
+            "type": "add_component",
+            "component": {
+              "id": "curio_mystery",
+              "type": "branching",
+              "title": "The Archive at 4 AM",
+              "nodes": [
+                {
+                  "text": "The desk drawer yields three objects wrapped in faded velvet: a brass key stamped with 'Room 0', a wax cylinder labeled yesterday, and a newspaper clipping dated tomorrow.",
+                  "options": [
+                    {
+                      "label": "Play the wax cylinder",
+                      "next": 1
+                    },
+                    {
+                      "label": "Read the clipping",
+                      "next": 2
+                    },
+                    {
+                      "label": "Examine the brass key",
+                      "next": 3
+                    }
+                  ]
+                },
+                {
+                  "text": "The phonograph hisses softly. A quiet voice speaks: 'If you are hearing this, the mantle clock has not yet struck thirteen. Look behind the wall mirror before you leave.'",
+                  "options": [
+                    {
+                      "label": "Check behind the mirror",
+                      "next": 4
+                    },
+                    {
+                      "label": "Inspect the mantle clock",
+                      "next": 5
+                    }
+                  ]
+                },
+                {
+                  "text": "The clipping is an obituary with your name on it, dated 36 hours from now. Cause: 'Vanished into an unmapped archive.' Penciled beneath: 'The key fits the floor latch.'",
+                  "options": [
+                    {
+                      "label": "Look for the floor latch",
+                      "next": 3
+                    },
+                    {
+                      "label": "Examine the handwriting",
+                      "next": 6
+                    }
+                  ]
+                },
+                {
+                  "text": "Beneath the rug lies a tarnished brass latch. The key fits with an oiled, velvet click. A spiral stone staircase spirals down into cold, phosphor-lit silence.",
+                  "options": [
+                    {
+                      "label": "Descend into the spiral",
+                      "next": 7
+                    },
+                    {
+                      "label": "Shine a light down first",
+                      "next": 8
+                    }
+                  ]
+                },
+                {
+                  "text": "Behind the silvered glass is an alcove containing an open ledger. The latest entry records the exact minute you opened this drawer.",
+                  "options": [
+                    {
+                      "label": "Turn to the next page",
+                      "next": 9
+                    },
+                    {
+                      "label": "Step back toward the clock",
+                      "next": 5
+                    }
+                  ]
+                },
+                {
+                  "text": "The mantle clock has no hands, only two nested rings turning in counter-rotation. With each soft click, the air smells faintly of rain and ozone.",
+                  "options": [
+                    {
+                      "label": "Touch the outer ring",
+                      "next": 7
+                    },
+                    {
+                      "label": "Search the hearth below it",
+                      "next": 8
+                    }
+                  ]
+                },
+                {
+                  "text": "The ink is warm to the touch and slightly damp. As you watch, a fresh line bleeds onto the paper: 'I can hear you reading.'",
+                  "options": [
+                    {
+                      "label": "Write a response",
+                      "next": 9
+                    },
+                    {
+                      "label": "Step away toward the staircase",
+                      "next": 3
+                    }
+                  ]
+                },
+                {
+                  "text": "At the foot of the stairs lies a circular library beneath dark water held back by glass. Every book is bound in slate, waiting for an opening line.",
+                  "options": []
+                },
+                {
+                  "text": "The beam illuminates rows of brass deposit boxes. One has been pulled out halfway, emitting a low, singing frequency.",
+                  "options": []
+                },
+                {
+                  "text": "The page absorbs the ink immediately, displaying coordinates and a single directive: 'Stay. The catalog is still indexing.'",
+                  "options": []
+                }
+              ]
+            }
+          }
+        ],
+        "strategy": {
+          "name": "interactive_mystery_exploration",
+          "reason": "User explicitly rejected number guessing and requested a strange little mystery to explore. Deployed a moody serif theme and an immersive branching narrative with tactile clues."
+        },
+        "memory": "User dislikes number guessing and generic games; desires strange interactive mysteries and exploratory puzzles. Maintain atmospheric lore and tangible interactive pathways."
+      }
+    }
+  ]
+}

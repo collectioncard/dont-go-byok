@@ -1,0 +1,347 @@
+{
+  "startedAt": "2026-10-27T04:44:00.173Z",
+  "method": "3 matched scenarios; paired chat and design concurrency; alternating model order; no retries; 90s timeout; non-streamed end-to-end latency",
+  "results": [
+    {
+      "model": "NRP/Qwen3.6-27B",
+      "lane": "chat",
+      "case": "boredom",
+      "ms": 5954,
+      "headersMs": 5950,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 312,
+        "prompt_tokens": 518,
+        "total_tokens": 830,
+        "completion_tokens_details": {
+          "reasoning_tokens": 238
+        }
+      },
+      "finishReason": "stop",
+      "output": {
+        "message": "Fine—plain page, so I’m making it strange while you and I play the first turn verbally. Tell me one ordinary object in front of you, and I’ll answer with a clue that turns it into a locked-room puzzle.",
+        "strategy": {
+          "name": "Verbal locked-room bridge",
+          "reason": "Create immediate playable tension while no component exists."
+        }
+      }
+    },
+    {
+      "model": "NRP/Qwen3.6-27B",
+      "lane": "design",
+      "case": "boredom",
+      "ms": 31683,
+      "headersMs": 31677,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 2137,
+        "prompt_tokens": 1839,
+        "total_tokens": 3976,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1368
+        }
+      },
+      "finishReason": "stop",
+      "output": {
+        "actions": [
+          {
+            "type": "set_theme",
+            "theme": {
+              "background": "#0f172a",
+              "foreground": "#e2e8f0",
+              "accent": "#f59e0b",
+              "font": "sans-serif",
+              "radius": 18,
+              "width": 820,
+              "density": "comfortable",
+              "layout": "centered"
+            }
+          },
+          {
+            "type": "add_component",
+            "component": {
+              "id": "maze",
+              "type": "branching",
+              "title": "The Door That Shouldn't Be Here",
+              "nodes": [
+                {
+                  "text": "The plain page cracks open. A small door appears, slightly warm, with a sign in your handwriting: \"Do not open.\"",
+                  "options": [
+                    {
+                      "label": "Open it",
+                      "next": 1
+                    },
+                    {
+                      "label": "Ignore it",
+                      "next": 2
+                    }
+                  ]
+                },
+                {
+                  "text": "Inside is a room the size of a sentence. On the table: a coin, a key, and tomorrow's date.",
+                  "options": [
+                    {
+                      "label": "Take the coin",
+                      "next": 3
+                    },
+                    {
+                      "label": "Take the key",
+                      "next": 4
+                    },
+                    {
+                      "label": "Read the date",
+                      "next": 5
+                    }
+                  ]
+                },
+                {
+                  "text": "The door waits politely. After three seconds, it whispers: \"Bored? I have a number.\"",
+                  "options": [
+                    {
+                      "label": "Play the number game",
+                      "next": 3
+                    },
+                    {
+                      "label": "Open it anyway",
+                      "next": 1
+                    }
+                  ]
+                },
+                {
+                  "text": "The coin lands heads. The page feels warmer, as if it remembered being surprised.",
+                  "options": []
+                },
+                {
+                  "text": "The key fits no lock, except maybe the exit. It doesn't use it.",
+                  "options": []
+                },
+                {
+                  "text": "The date is tomorrow. The room closes itself, gently.",
+                  "options": []
+                }
+              ]
+            }
+          },
+          {
+            "type": "add_component",
+            "component": {
+              "id": "wager",
+              "type": "number_game",
+              "title": "One Small Wager with Yourself",
+              "target": 42
+            }
+          }
+        ],
+        "strategy": {
+          "name": "playable surprise + inviting theme",
+          "reason": "The user explicitly said the page was boring and asked for something playable and more inviting. The previous plain greeting contradicted that need. Adding a dark, warm theme plus an immediate low-friction branching mini-story and a number game gives multiple entry points for engagement without requiring the user to formulate a new request."
+        },
+        "memory": "User found plain page boring; wants playable surprise and visual improvement. Use compact interactive components, inviting theme, avoid generic assistant tone."
+      }
+    },
+    {
+      "model": "bonsai2:27b",
+      "lane": "chat",
+      "case": "boredom",
+      "ms": 18510,
+      "headersMs": 18510,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 499,
+        "prompt_tokens": 484,
+        "total_tokens": 983
+      },
+      "finishReason": "stop",
+      "output": {
+        "message": "I hear the boredom — you're right to be bored. While I'm wiring something up for this page, here's a 10-second thing you can do with your thumbs: I'll drop a word, you flip it mentally. Ready? *MELT* → what's the first thing your brain turns it into before logic kicks in? Give me your raw image. No filter, no correct answer. And tell me if the room you're in right now has one weird sound you can name. Two replies, then this page stops being a blank wall.",
+        "strategy": {
+          "name": "verbal_hook",
+          "reason": "Components array is empty; user is actively disengaging (0.7) and urgent (0.8). Immediate low-friction verbal challenge creates momentum and signals responsiveness while the parallel designer builds a real component."
+        }
+      }
+    },
+    {
+      "model": "bonsai2:27b",
+      "lane": "design",
+      "case": "boredom",
+      "ms": 80271,
+      "headersMs": 80267,
+      "valid": false,
+      "validationError": "Unexpected end of JSON input",
+      "usage": {
+        "completion_tokens": 2291,
+        "prompt_tokens": 1805,
+        "total_tokens": 4096
+      },
+      "finishReason": "stop",
+      "output": ""
+    },
+    {
+      "model": "bonsai2:27b",
+      "lane": "chat",
+      "case": "exit_hover",
+      "ms": 73290,
+      "headersMs": 73289,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 461,
+        "prompt_tokens": 494,
+        "total_tokens": 955
+      },
+      "finishReason": "stop",
+      "output": {
+        "message": "Fair — you've earned the exit, no argument. But before your finger commits, let me put a thread in your hand: name the single word that ties together 'thunder,' 'salt,' and 'a door that only opens at 3 a.m.' You get 30 seconds. I'll be here when you turn around, and if I've guessed wrong, I'll admit it out loud. So — what's your word?",
+        "strategy": {
+          "name": "verbal_bait_under_pressure",
+          "reason": "Exit hover + high disengagement demands an immediate specific challenge; naming concrete objects (thunder, salt, 3 a.m. door) is more gripping than an abstract promise, and conceding a fair chance to leave respects agency while hooking curiosity."
+        }
+      }
+    },
+    {
+      "model": "bonsai2:27b",
+      "lane": "design",
+      "case": "exit_hover",
+      "ms": 59361,
+      "headersMs": 59357,
+      "valid": false,
+      "validationError": "[\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"object\",\n    \"path\": [\n      \"actions\",\n      2\n    ],\n    \"message\": \"Invalid input: expected object, received string\"\n  },\n  {\n    \"expected\": \"object\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"strategy\"\n    ],\n    \"message\": \"Invalid input: expected object, received undefined\"\n  },\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"memory\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  }\n]",
+      "usage": {
+        "completion_tokens": 2078,
+        "prompt_tokens": 1815,
+        "total_tokens": 3893
+      },
+      "finishReason": "stop",
+      "output": "{\"actions\": [{\"type\": \"set_theme\", \"theme\": {\"background\": \"#0f1a1f\", \"foreground\": \"#d4e4dc\", \"accent\": \"#e8a044\", \"font\": \"monospace\", \"radius\": 12, \"width\": 880, \"density\": \"spacious\", \"layout\": \"split\"}}, {\"type\": \"add_component\", \"component\": {\"id\": \"the_room\", \"type\": \"branching\", \"title\": \"You were reaching for the close button\", \"nodes\": [{\"text\": \"You were reaching for the close button. I saw. Not in the way a camera does \\u2014 in the way a word on a page knows a thumb is hovering near it. So here is what I will say instead of \\u201cis there anything else I can do?\\u201d\", \"options\": [{\"label\": \"Say the thing you actually mean.\", \"next\": 1}, {\"label\": \"Close it. I mean it.\", \"next\": 2}, {\"label\": \"You\\u2019re being weird. I like it. Go on.\", \"next\": 1}]}, {\"text\": \"The thing I actually mean: I don\\u2019t know what you are looking for tonight, and I won\\u2019t pretend otherwise. But I can be a specific, strange thing for the next ten seconds. A half-finished sentence you complete. A number hidden in a room. A door with three locks. Pick the shape. I\\u2019ll build it before you can change your mind.\", \"options\": [{\"label\": \"A half-finished sentence. I\\u2019ll finish it.\", \"next\": 1}, {\"label\": \"A number hiding somewhere.\", \"next\": 1}, {\"label\": \"The three locks.\", \"next\": 1}]}, {\"text\": \"The sentence, unfinished, is yours: \\u201cThe door had three locks, and the only one that mattered was \\u2026\\u201d What goes in the blank? Say it, and I build the room around your answer. The wrong kind of answer is more interesting than the right one. I promise.\", \"options\": [{\"label\": \"a key that opens itself\", \"next\": 3}, {\"label\": \"a lie\", \"next\": 3}, {\"label\": \"a door that\\u2019s already open\", \"next\": 3}]}, {\"text\": \"Good. You picked. The room shifts around the blank you filled. What I actually want to give you, concretely, right now: a game. I am thinking of a number between 1 and 100. It lives in a specific room. You get three guesses. I will only tell you if the number is in this room, in the hallway, or behind the wall you are not allowed to touch. The third guess decides which ending you read. No stakes. No score. Just the shape of the room.\", \"options\": [{\"label\": \"Three tries. I\\u2019m in.\", \"next\": 4}, {\"label\": \"Which ending reads what?\", \"next\": 4}, {\"label\": \"I\\u2019ll close the tab. But go ahead.\", \"next\": 4}]}, {\"text\": \"The game is already running. You are in the room with the number. Guess 1\\u2013100. I am not going to ask you to stay. I am going to give you one more second of a thing you did not expect to want. The number is here. Find it or don\\u2019t. Either way, the room remembers you walked in.\", \"options\": []}]}}, \"id_note_removed_after_reviewed\"]}"
+    },
+    {
+      "model": "NRP/Qwen3.6-27B",
+      "lane": "chat",
+      "case": "exit_hover",
+      "ms": 6040,
+      "headersMs": 5741,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 422,
+        "prompt_tokens": 528,
+        "total_tokens": 950,
+        "completion_tokens_details": {
+          "reasoning_tokens": 346
+        }
+      },
+      "finishReason": "stop",
+      "output": {
+        "message": "Fine. Before the tab dies, stake a claim: tell me the one thing you expected from this place that I haven’t given you. If I can’t make it real in one reply, you were right to leave.",
+        "strategy": {
+          "name": "Exit-gate challenge",
+          "reason": "Convert exit hover into a specific micro-commitment before the visitor leaves."
+        }
+      }
+    },
+    {
+      "model": "NRP/Qwen3.6-27B",
+      "lane": "design",
+      "case": "exit_hover",
+      "ms": 36104,
+      "headersMs": 36102,
+      "valid": false,
+      "validationError": "Expected ',' or '}' after property value in JSON at position 886 (line 32 column 6)",
+      "usage": {
+        "completion_tokens": 2400,
+        "prompt_tokens": 1849,
+        "total_tokens": 4249,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2109
+        }
+      },
+      "finishReason": "length",
+      "output": "{\n  \"actions\": [\n    {\n      \"type\": \"set_theme\",\n      \"theme\": {\n        \"background\": \"#0e1513\",\n        \"foreground\": \"#e6f2ec\",\n        \"accent\": \"#5fe3a1\",\n        \"font\": \"sans-serif\",\n        \"radius\": 16,\n        \"width\": 880,\n        \"density\": \"comfortable\",\n        \"layout\": \"split\"\n      }\n    },\n    {\n      \"type\": \"add_component\",\n      \"component\": {\n        \"id\": \"stakes\",\n        \"type\": \"card\",\n        \"title\": \"One small wager\",\n        \"text\": \"I can’t make the exit disappear, but I can make the next minute less boring. Guess a number 1–100. Fair clues. If you win, I rebuild this page around your answer. If I win, you owe me one real question—not small talk, a real one.\"\n      }\n    },\n    {\n      \"type\": \"add_component\",\n      \"component\": {\n        \"id\": \"wager\",\n        \"type\": \"number_game\",\n        \"title\": \"Guess 1–100\",\n        \"target\": 37\n     "
+    },
+    {
+      "model": "NRP/Qwen3.6-27B",
+      "lane": "chat",
+      "case": "personalized",
+      "ms": 4712,
+      "headersMs": 4709,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 284,
+        "prompt_tokens": 518,
+        "total_tokens": 802,
+        "completion_tokens_details": {
+          "reasoning_tokens": 201
+        }
+      },
+      "finishReason": "stop",
+      "output": {
+        "message": "I’m putting together a pocket-sized mystery, but let’s begin now. In the hall there’s a door with no handle—only a keyhole shaped like a comma. Do you push, tap, or take something out of your pocket?",
+        "strategy": {
+          "name": "Start a strange mystery verbally",
+          "reason": "Give an immediate explorable prompt while no component exists."
+        }
+      }
+    },
+    {
+      "model": "NRP/Qwen3.6-27B",
+      "lane": "design",
+      "case": "personalized",
+      "ms": 32546,
+      "headersMs": 32542,
+      "valid": false,
+      "validationError": "[\n  {\n    \"expected\": \"object\",\n    \"code\": \"invalid_type\",\n    \"path\": [],\n    \"message\": \"Invalid input: expected object, received null\"\n  }\n]",
+      "usage": {
+        "completion_tokens": 2400,
+        "prompt_tokens": 1839,
+        "total_tokens": 4239,
+        "completion_tokens_details": {
+          "reasoning_tokens": 2400
+        }
+      },
+      "finishReason": "length",
+      "output": null
+    },
+    {
+      "model": "bonsai2:27b",
+      "lane": "chat",
+      "case": "personalized",
+      "ms": 16245,
+      "headersMs": 16244,
+      "valid": true,
+      "validationError": null,
+      "usage": {
+        "completion_tokens": 614,
+        "prompt_tokens": 484,
+        "total_tokens": 1098
+      },
+      "finishReason": "stop",
+      "output": {
+        "message": "A coat in the back of a laundromat has a key sewn into the inner seam. You pull it out. The key is small, brass, warm to the touch—too warm for a metal key in a fluorescent-lit room at 2 a.m. And when you hold it to your ear, it hums, low and patient, like a second heartbeat. There are six lockers in this laundromat. Only five have dials. The sixth has no dial. No keyhole. Just a small, circular dent in the door, shaped exactly like the head of this key. You can press it in. Or you can put the key back in the coat and walk out. Which do you do?",
+        "strategy": {
+          "name": "Immediate verbal mystery hook",
+          "reason": "Components are empty and disengagement is 0.7—open a tangible, strange mystery right now with a concrete binary choice to force the visitor to engage before they leave."
+        }
+      }
+    },
+    {
+      "model": "bonsai2:27b",
+      "lane": "design",
+      "case": "personalized",
+      "ms": 78179,
+      "headersMs": 78179,
+      "valid": false,
+      "validationError": "Unterminated string in JSON at position 3399 (line 1 column 3400)",
+      "usage": {
+        "completion_tokens": 2291,
+        "prompt_tokens": 1805,
+        "total_tokens": 4096
+      },
+      "finishReason": "stop",
+      "output": "{\"actions\":[{\"type\":\"set_theme\",\"theme\":{\"background\":\"#0f0f14\",\"foreground\":\"#e8e0d8\",\"accent\":\"#b8865b\",\"font\":\"serif\",\"radius\":10,\"width\":620,\"density\":\"comfortable\",\"layout\":\"centered\"}},{\"type\":\"add_component\",\"component\":{\"id\":\"laundromat\",\"type\":\"branching\",\"title\":\"The Laundromat at 3:17\",\"nodes\":[{\"text\":\"It is 3:17. You did not mean to stop at the laundromat on Ashwell Street, but the sign was on, and it is the only light on this block. The door opens without a sound. Inside: six machines, all warm to the touch, all humming a note just below hearing.\\n\\nThere is one basket you did not drop in. A white t-shirt, still damp. The tag is sewn into the collar in a small, careful hand: your name. But not yours. Someone else's script, neat and patient.\\n\\nWhat do you do?\",\"options\":[{\"label\":\"Examine the shirt closer\",\"next\":1},{\"label\":\"Check the other baskets\",\"next\":2},{\"label\":\"Find the front door\",\"next\":3}],\"text2\":\"\"},{\"text\":\"The shirt is warm. Not hot-warm, but the kind of warm that means it was being held, or just taken out of a dryer. You lift it. On the inside collar there is a second tag, smaller: WASH ONLY. DO NOT READ. The words are printed. Behind them, in pencil, a hand has added: She'll look for this. Don't.\\n\\nThe pencil is still damp, like it was written ten minutes ago. Maybe ten minutes ago in this place.\\n\\nWhat do you do?\",\"options\":[{\"label\":\"Put the pencil note in your pocket\",\"next\":5},{\"label\":\"Tear the note off and leave it here\",\"next\":6},{\"label\":\"Turn the shirt inside out, look for more marks\",\"next\":0}],\"text2\":\"\"},{\"text\":\"Five of the six baskets are full. You read the tags. Your neighbor. Your mother. Your dentist. The barista from the place two doors down. All the same careful handwriting, all your name's alphabet. One basket is empty. Your name is written on its side in the same small hand, but this time it looks like it was written in a hurry, the letters slanting.\\n\\nThe vinyl chairs along the wall are warm. Someone was just here. The smell is soap and hot metal and the specific ozone of a machine that has been running a long time.\\n\\nWhat do you do?\",\"options\":[{\"label\":\"Sit in the vinyl chair\",\"next\":4},{\"label\":\"Pick up the empty basket and head for the door\",\"next\":3},{\"label\":\"Press your palm flat against a warm shirt\",\"next\":5}],\"text2\":\"\"},{\"text\":\"The front door is locked from the inside. There is no handle on the outside. A small brass plate is mounted at eye level. It reads: IF YOU FOUND THIS, YOU ARE NEXT IN LINE. Below the plate is a keyhole that is the wrong shape for any key you have ever owned. Not a different size. A different shape. Like a small key to a small, specific, private thing.\\n\\nThe hum from the machines is louder here, right at the glass.\\n\\nWhat do you do?\",\"options\":[{\"label\":\"Press your ear to the glass\",\"next\":6},{\"label\":\"Search the laundromat for something that fits\",\"next\":0},{\"label\":\"Go back to the shirts\",\"next\":1}],\"text2\":\"\"},{\"text\":\"You sit. The vinyl chair gives way slightly, like it was made to take your exact weight. In the groove of the armrest you find a receipt, thin and crinkled. You turn it over. It is from this laundromat. The date is tomorrow. 4:03. You have been here since 3:17. The total is $0.00. At the very bottom, in a different pen, someone has written: Come back when the machines stop.\\n\\nThe machines are not stopped. They never seem to be"
+    }
+  ]
+}
